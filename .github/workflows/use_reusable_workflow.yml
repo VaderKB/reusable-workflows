@@ -17,6 +17,6 @@ jobs:
                 echo "this is file 1" >> file2.txt
             - name: upload artifacts
               uses: actions/upload-artifact@v4
+              with:
                 name: shared-files
                 path: shared
-                
