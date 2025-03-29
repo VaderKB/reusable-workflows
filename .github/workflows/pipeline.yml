@@ -7,5 +7,4 @@ on:
 run-name: using reusable workflow
 jobs:
     build:
-        runs-on: ubuntu-latest
         uses: ./.github/workflows/reusable-workflows.yml
