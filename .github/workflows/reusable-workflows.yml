@@ -1,14 +1,20 @@
 name: reusable workflow
-on: workflow_call
+on: 
+    workflow_call:
+        inputs:
+            artifact-name: 
+                description: name of the deployable artifact files
+                required: false #Set to true if you want the workflow to fail if this value is not provided
+                default: dist
+                type: string     
 run-name: reusable workflows
 jobs:
-    build:
+    deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-
-            - name: Install packages
-              run: |
-                pip install --upgrade pip
-                pip install -r requirements.txt
+            - name: Get files
+              uses: actions/download-artifacts@v3
+              with:
+                name: ${{ inputs.artifact-name }}
+            - name: Show files
+              run: ls -lrt

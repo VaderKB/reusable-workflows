@@ -1,0 +1,23 @@
+name: use reusable
+on: 
+    push: 
+        branches:
+            - main
+    workflow_dispatch:
+run-name: using reusable workflow
+jobs:
+    upload-artifacts:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create files
+              run: |
+                mkdir shared
+                cd shared
+                echo "this is file 1" >> file1.txt
+                echo "this is file 1" >> file2.txt
+            - name: upload artifacts
+              uses:
+                name: shared-files
+                path:
+                    shared
+                
