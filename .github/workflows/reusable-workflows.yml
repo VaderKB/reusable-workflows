@@ -6,11 +6,20 @@ on:
                 description: name of the deployable artifact files
                 required: false #Set to true if you want the workflow to fail if this value is not provided
                 default: dist
-                type: string     
+                type: string    
+        {# secrets:
+             aws-instance-id:
+                required: true #}
+        outputs:
+            result: 
+                description: result of the workflow
+                value: ${{ jobs.deploy.outputs.outcome }}
 run-name: reusable workflows
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        outputs:
+            outcome: ${{ steps.set-output.outputs.step-result }}
         steps:
             - name: Get files
               uses: actions/download-artifact@v4
@@ -18,3 +27,6 @@ jobs:
                 name: ${{ inputs.artifact-name }}
             - name: Show files
               run: ls -lrt
+            - name: Set result output
+              id: set-output
+              run: echo "step-result=success" >> $GITHUB_OUTPUT 
