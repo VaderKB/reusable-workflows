@@ -20,3 +20,8 @@ jobs:
               with:
                 name: shared-files
                 path: shared
+                
+    build:
+        uses: ./.github/workflows/reusable-workflows.yml
+        with:
+            artifact-name: shared-files

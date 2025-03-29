@@ -17,4 +17,4 @@ jobs:
               with:
                 name: ${{ inputs.artifact-name }}
             - name: Show files
-              run: ls -lrt
+              run: ls -lrt shared/
