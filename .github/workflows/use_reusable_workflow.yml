@@ -11,6 +11,7 @@ jobs:
         steps:
             - name: Create files
               run: |
+                echo "this is file 1" >> file3.txt
                 mkdir shared
                 cd shared
                 echo "this is file 1" >> file1.txt
@@ -19,7 +20,9 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: shared-files
-                path: shared
+                path: |
+                    shared
+                    file3.txt
                 
     build:
         needs:
