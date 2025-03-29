@@ -8,9 +8,4 @@ run-name: using reusable workflow
 jobs:
     build:
         runs-on: ubuntu-latest
-        steps:
-            - name: Use reusable workflow
-              uses: ./.github/workflows/reusable-workflows.yml
-
-            - name: Show data
-              run: echo "hello there"
+        uses: ./.github/workflows/reusable-workflows.yml
