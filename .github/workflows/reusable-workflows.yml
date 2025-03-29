@@ -7,9 +7,9 @@ on:
                 required: false #Set to true if you want the workflow to fail if this value is not provided
                 default: dist
                 type: string    
-        {# secrets:
-             aws-instance-id:
-                required: true #}
+        # secrets:
+        #     aws-instance-id:
+        #        required: true #
         outputs:
             result: 
                 description: result of the workflow
