@@ -1,0 +1,13 @@
+name: reusable workflow
+on: workflow_call
+run-name: reusable worflows
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            -name: checkout code
+             uses: actions/checkout@v4
+            -name: Install packages
+             run: |
+                pip install --upgrade pip
+                pip install -r requirements.txt
