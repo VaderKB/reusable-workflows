@@ -10,6 +10,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: use reusable workflow
-              uses: ./.github/workflows/pipleline.yml
+              uses: ./.github/workflows/reusable-workflows.yml
             - name: show data
               run: echo "hello there"
