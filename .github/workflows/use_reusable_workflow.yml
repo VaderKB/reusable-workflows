@@ -28,13 +28,13 @@ jobs:
         uses: ./.github/workflows/reusable-workflows.yml
         with:
             artifact-name: shared-files
-        {# secrets:
-            aws-instance-id: ${{ secrets.aws-instance-id }} #}
+        # secrets:
+        #    aws-instance-id: ${{ secrets.aws-instance-id }}
     print-usable-workflow-outputs:
         needs:
-            deploy
+            build
         runs-on: ubuntu-latest
         steps:
             - name: Print build output
-              run: echo ${{ needs.deploy.outputs.result }}
+              run: echo ${{ needs.build.outputs.result }}
 
