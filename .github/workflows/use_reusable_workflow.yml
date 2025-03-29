@@ -22,6 +22,8 @@ jobs:
                 path: shared
                 
     build:
+        needs:
+            - upload-artifacts
         uses: ./.github/workflows/reusable-workflows.yml
         with:
             artifact-name: shared-files
